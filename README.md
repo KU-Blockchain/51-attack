@@ -11,7 +11,8 @@ The most invested in DAO was just called 'The DAO', this was based off of the [o
 
 The vulnerability exists within the SplitDao function in the Dao.sol file of the original framework.By recursively calling this function repeatedly, an attacker can drain the contents of the DAO. This is called a recursive send pattern. I have provided a copy of the splitDao function below:
 
-``` function splitDAO(
+```
+function splitDAO(
   uint _proposalID,
   address _newCurator
 ) noEther onlyTokenholders returns (bool _success) {
@@ -33,7 +34,8 @@ The vulnerability exists within the SplitDao function in the Dao.sol file of the
   balances[msg.sender] = 0; // XXXXX AND THIS IS DONE LAST TOO
   paidOut[msg.sender] = 0;
   return true;
-} ```
+} 
+```
 
 *The basic idea is this: propose a split. Execute the split. When the DAO goes to withdraw your reward, call the function to execute a split before that withdrawal finishes. The function will start running without updating your balance, and the line we marked above as "the attacker wants to run more than once" will run more than once. What does that do? Well, the source code is in TokenCreation.sol, and it transfers tokens from the parent DAO to the child DAO. Basically the attacker is using this to transfer more tokens than they should be able to into their child DAO.*
 
