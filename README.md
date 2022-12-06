@@ -1,6 +1,6 @@
 # 51-attack
 
-This project has migrated to [Michael Keleti's repository.](https://github.com/mkeleti/docker-eth-attack)
+This project has migrated to [Michael Keleti's GitHub.](https://github.com/mkeleti/docker-eth-attack)
 
 ## How it happened
 
