@@ -1,6 +1,6 @@
 # 51-attack
 
-This is the primary repository containing relevant source code to perform the attack that ethereum suffered in its frontier release.
+This project has migrated to @[Michael Keleti's repository.](https://github.com/mkeleti/docker-eth-attack)
 
 ## How it happened
 
